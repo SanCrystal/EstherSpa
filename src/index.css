@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer {
+    .hero-left-clip {
+        clip-path: polygon(0 0, 30% 0, 71% 100%, 0 100%);
+    }
+    .hero-right-clip{
+        clip-path: polygon(71% 0, 100% 0%, 99% 100%, 32% 100%);
+    }
+    /* change swiper padding */
+    .swiper-wrapper{
+        padding-bottom: 65px;
+    }
+    /* change pagination background */
+    .swiper-pagination-bullet {
+        background: #783B10 !important;
+    }
+}
