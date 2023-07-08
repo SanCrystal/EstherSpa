@@ -1,0 +1,37 @@
+{
+    "plugins": [
+        [
+            "mozjpeg",
+            {
+                "quality": 75,
+                "progressive": true,
+                "arithmetic": false,
+                "smooth": 10,
+                "dcScanOpt": 2,
+                "quantTable": 3,
+                "trellis": true,
+                "trellisDC": true,
+                "trellisQuant": true,
+                "trellisLayers": 1,
+                "optimizeScans": true,
+                "sample": [
+                    2,
+                    1,
+                    1
+                ],
+                "dctMethod": 1,
+                "baseline": false,
+                "quantBaseline": true
+            }
+        ],
+        [
+            "pngquant",
+            {
+                "quality": [
+                    0.3,
+                    0.4
+                ]
+            }
+        ]
+    ]
+}
