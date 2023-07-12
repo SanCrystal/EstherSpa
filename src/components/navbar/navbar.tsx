@@ -3,19 +3,21 @@ import {BsCart4,BsFillTelephoneOutboundFill} from "react-icons/bs"
 import {AiOutlineClose} from "react-icons/ai";
 import {FiMail} from "react-icons/fi";
 import {GiHamburgerMenu} from "react-icons/gi";
-import Logo from "../../assets/logo.png";
 import { navitem } from "../../interfaces/ui_interface";
 import { navDataMain } from "../data/navData";
 import NavItem from "./navItem";
 import {ServicePricingData } from "../../interfaces/ui_interface";
+import { assets } from "../../assets/compressedAssets";
 
-const Navbar = (props:{addToCart:ServicePricingData[],setAddToCart:React.Dispatch<React.SetStateAction<ServicePricingData[]>>}) => {
+const Navbar = (props:{addToCart:ServicePricingData[],setAddToCart:React.Dispatch<React.SetStateAction<ServicePricingData[]>>,handleCheckout:()=>void}) => {
     const [isOpen,setIsOpen]= useState<boolean>(false);
+    console.log(props)
+
     return ( <>
 <div className="hidden md:flex contact-header w-full flex-wrap items-center justify-end  pr-20 bg-secondaryLight gap-10 ">
         <span className="flex place-items-center gap-2 p-1">
             <FiMail/>
-            <span>yoyoFourpoints@gmail.com</span> 
+            <span>esb@gmail.com</span> 
         </span>
         <span className="flex place-items-center gap-2 p-1">
             <BsFillTelephoneOutboundFill className=""/>
@@ -24,8 +26,8 @@ const Navbar = (props:{addToCart:ServicePricingData[],setAddToCart:React.Dispatc
 <nav className=" border border-primary bg-primary dark:border-primary  ">
   <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 relative">
     <a href="/" className="flex items-center">
-        <img src={Logo} className="h-8 mr-3" alt="yoyo Logo" />
-        <span className="self-center text-2xl text-gray-100 font-semibold whitespace-nowrap dark:text-secondaryLight">FOUR POINT SPA</span>
+        <img src={assets.Logo} className="h-8 mr-3" alt="esb Logo" />
+        <span className="self-center text-2xl text-gray-100 font-semibold whitespace-nowrap dark:text-yellow-600/80">EFB BEAUTY SPA</span>
     </a>
     {
         !isOpen && 
@@ -40,7 +42,7 @@ const Navbar = (props:{addToCart:ServicePricingData[],setAddToCart:React.Dispatc
       {
         navDataMain.map((item:navitem,k:number)=> <NavItem title={item.title} link={item.link} key={`${k}`} subLink={item.subLink}/>)
       }
-       <li className="relative hover:cursor-pointer">
+       <li className="relative hover:cursor-pointer" onClick={()=>{props.handleCheckout();}}>
         <span className="counter bg-red-500 w-6 h-6 block text-center rounded-full absolute -right-5 -top-2">{props?.addToCart?.length??0}</span>
         <BsCart4 className="text-2xl text-secondaryLight "/>
        </li>
@@ -55,7 +57,7 @@ const Navbar = (props:{addToCart:ServicePricingData[],setAddToCart:React.Dispatc
     {
         navDataMain.map((item:navitem,k:number)=> <NavItem title={item.title} link={item.link} key={`${k}`} subLink={item.subLink}/>)
     }
-    <li className="relative hover:cursor-pointer px-5 pt-2">
+    <li className="relative hover:cursor-pointer px-5 pt-2" onClick={()=>{props.handleCheckout();}}>
         <span className="counter bg-red-500 w-6 h-6 block text-center rounded-full absolute left-8 -top-1">{props?.addToCart?.length??0}</span>
         <BsCart4 className="text-2xl text-secondaryLight  "/>
     </li>

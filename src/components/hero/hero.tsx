@@ -8,58 +8,51 @@ import 'swiper/css';
 // import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import "swiper/css/autoplay";
-
-import Spa from "../../assets/spa.jpg";
-import Spa1 from "../../assets/spa1.jpg";
-import Spa2 from "../../assets/spa2.jpg";
-import Spa3 from "../../assets/spa3.jpg";
-import Spa4 from "../../assets/spa4.jpg";
-import Spa5 from "../../assets/spa5.jpg";
-import Spa6 from "../../assets/spa6.jpg";
+import { assets } from "../../assets/compressedAssets";
 import ImageSwiper from "../imageSwiper";
 
 const images = [
   {
-    image:Spa,
-    header:"Welcome to Four Point Spa - Where Bliss Awaits",
-    subheader:"",
-    text:"Discover a World of Tranquility and Rejuvenation",
+    image:assets.Spa,
+    header:"Welcome to EFB BEAUTY SPA - Where Bliss Awaits",
+    subheader:"A Haven of Tranquility, Awe-Inspiring Luxury",
+    text:"Indulge in Pure Bliss and Serenity",
   },
   {
-    image:Spa1,
-    header:"Welcome to Four Point Spa - Where Bliss Awaits",
+    image:assets.Spa1,
+    header:"Welcome to EFB BEAUTY SPA - Revitalize Your Mind, Body, and Soul",
     subheader:"",
-    text:"Discover a World of Tranquility and Rejuvenation",
+    text:"Experience Opulence and Rejuvenation Unparalleled",
   },
   {
-    image:Spa2,
-    header:"Welcome to Four Point Spa - Where Bliss Awaits",
+    image:assets.Spa2,
+    header:"Welcome to EFB BEAUTY SPA - Embrace Serenity, Awaken Your Inner Glow",
     subheader:"",
-    text:"Discover a World of Tranquility and Rejuvenation",
+    text:"Escape to Tranquility, Embrace Unmatched Luxury",
   },
   {
-    image:Spa3,
-    header:"Welcome to Four Point Spa - Where Bliss Awaits",
+    image:assets.Spa3,
+    header:"Welcome to EFB BEAUTY SPA - Immerse Yourself in Utter Relaxation and Revitalization",
     subheader:"",
-    text:"Discover a World of Tranquility and Rejuvenation",
+    text:"Elevate Your Senses, Embark on Exquisite Relaxation",
   },
   {
-    image:Spa4,
-    header:"Welcome to Four Point Spa - Where Bliss Awaits",
+    image:assets.Spa4,
+    header:"Welcome to EFB BEAUTY SPA - Where Indulgence Meets Unparalleled Pampering",
     subheader:"",
-    text:"Discover a World of Tranquility and Rejuvenation",
+    text:"Discover the Epitome of Pampering Luxury",
   },
   {
-    image:Spa5,
-    header:"Welcome to Four Point Spa - Where Bliss Awaits",
+    image:assets.Spa5,
+    header:"Welcome to EFB BEAUTY SPA - Envelop Your Senses in Unparalleled Luxury",
     subheader:"",
-    text:"Discover a World of Tranquility and Rejuvenation",
+    text:"Unwind, Recharge, and Radiate Inner Beauty",
   },
   {
-    image:Spa6,
-    header:"Welcome to Four Point Spa - Where Bliss Awaits",
+    image:assets.Spa6,
+    header:"Welcome to EFB BEAUTY SPA - Unveil the Essence of Timeless Elegance",
     subheader:"",
-    text:"Discover a World of Tranquility and Rejuvenation",
+    text:"Luxuriate in Unforgettable Moments of Pure Bliss",
   }
 ]
 
@@ -119,7 +112,7 @@ const Hero = () => {
           
         >
             {
-              images.map((item:{image:string,header:string,subheader:string,text:string},k:number)=><SwiperSlide > <ImageSwiper src={item.image} position={k%2==0?"left":"right"} header={item.header} subheader={item.subheader} text={item.text}/>  </SwiperSlide>)
+              images.map((item:{image:string,header:string,subheader:string,text:string},k:number)=><SwiperSlide  key={k}  > <ImageSwiper src={item.image} position={k%2==0?"left":"right"} header={item.header} subheader={item.subheader} text={item.text}/>  </SwiperSlide>)
             }
         </Swiper>
     </section>

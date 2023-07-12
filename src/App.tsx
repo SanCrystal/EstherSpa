@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useState,useCallback } from "react";
 import {
- BrowserRouter,
  Routes,
- Route
+ Route,
+ useNavigate
 } from "react-router-dom";
 
 import Navbar from './components/navbar/navbar';
@@ -15,19 +15,22 @@ import AboutUs from './pages/aboutus';
 import Blog from './pages/blog';
 import Services from './pages/services';
 import Gallery from './pages/gallery';
+import Cart from './pages/cart/cart';
 import {ServicePricingData } from "./interfaces/ui_interface";
 
 
 
 
 function App() {
-  const [addToCart,setAddToCart] = useState<ServicePricingData[]>([])
-  console.log("addToCart",addToCart)
+  const [addToCart,setAddToCart] = useState<ServicePricingData[]>([]);
+  const navigation = useNavigate();
+  const handleCheckout =useCallback(()=>{
+    navigation("/checkout");
+  },[]);
   return (
     <>
       <main className='w-full h-[100vh] overflow-x-hidden bg-primaryDark/80 dark:bg-primaryDark' >
-        <Navbar setAddToCart={setAddToCart} addToCart={addToCart}/>
-          <BrowserRouter>
+        <Navbar setAddToCart={setAddToCart} addToCart={addToCart} handleCheckout={handleCheckout}/>
             <Routes>
               <Route path="/" element={ <Home addToCart={addToCart}  setAddToCart={setAddToCart}/>}/>
               <Route path="contact" element={<Contact />} />
@@ -38,8 +41,8 @@ function App() {
               <Route path='blog' element={<Blog />}/>
               <Route path='bookings' element={<Bookings />}/>
               <Route path='gallery' element={<Gallery />}/>
+              <Route path='checkout' element={<Cart addToCart={addToCart}  />}/>
             </Routes>
-          </BrowserRouter>
         <Footer/>
       </main>
     </>

@@ -15,12 +15,11 @@ const MeetTeam = () => {
             <h1 className="font-pacifico text-5xl text-primary pb-3 font-extralight text-center">Meet</h1>
             <h2 className="text-2xl uppercase text-primary text-center  pb-16">Our Expert</h2>
             <div className="card-products relative flex place-items-center ">
-                {/* {
-                    Members.map((item:{image:string,name:string,office:string})=><PhotoCard image={item.image} name={item.name} office={item.office}/>)
-                } */}
+                <div className="absolute h-full w-full flex place-items-center z-10 justify-between">
+                    <BsFillArrowLeftCircleFill  className="swiper-button-prev text-secondaryLight text-3xl hover:cursor-pointer"/>
+                    <BsFillArrowRightCircleFill className="swiper-button-next text-secondaryLight text-3xl hover:cursor-pointer"/>
+                </div>
 
-<BsFillArrowLeftCircleFill  className="swiper-button-prev text-secondaryLight text-3xl"/>
-            <BsFillArrowRightCircleFill className="swiper-button-next text-secondaryLight text-3xl"/>
             
                 <Swiper
                 slidesPerView={1}

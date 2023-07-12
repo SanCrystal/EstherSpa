@@ -34,7 +34,7 @@ const HomeGallery = () => {
                 />
             </div>
             <div className="scroll-to-packages md:flex gap-5 place-items-center mt-10 bg-primaryLight p-5 text-gray-200 grid">
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem ea aperiam voluptatum ratione pariatur voluptatibus! Doloribus aspernatur nulla esse cumque.</p>
+                <p>To enhance your wellness journey and allow you to continue experiencing the benefits of our treatments at home, we offer thoughtfully curated spa product packages. These packages combine the finest spa products, expertly selected to elevate your self-care rituals and provide ongoing nourishment and relaxation. Discover the perfect spa product package tailored to your needs and indulge in a luxurious spa experience in the comfort of your own space.</p>
                 {/* <a text="View Packages" bgColor="bg-secondary" rounded="rounded-lg"/> */}
                 <a href="#view-packages" className=" rounded-lg bg-secondary block py-1 px-3 text-center uppercase text-warmGray-50">View Packages</a>
             </div>
