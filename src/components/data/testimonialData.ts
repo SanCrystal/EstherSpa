@@ -1,9 +1,6 @@
 import { testimonial } from "../../interfaces/ui_interface";
 import { assets } from "../../assets/compressedAssets";
-import Audrey from "../../assets/testimonial.jpg";
-import Karen from "../../assets/testimonial1.jpg"
-import Kehinde from "../../assets/testimonial2.jpg";
-import Jade from "../../assets/testimonial3.jpg";
+
 
 
 export const testimonialData:testimonial[] = [

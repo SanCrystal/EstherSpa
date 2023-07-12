@@ -1,9 +1,5 @@
 import { ServicePricingData } from "../../interfaces/ui_interface"
 import { assets } from "../../assets/compressedAssets";
-import Facial from "../../assets/facial.jpg"
-import Massage1 from "../../assets/massage1.jpg";
-import Massage2 from "../../assets/massage2.jpg";
-import Facial3 from "../../assets/facial3.jpg"
 
 
 export const servicePricingData:ServicePricingData[] =[
