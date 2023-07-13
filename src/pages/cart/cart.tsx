@@ -17,9 +17,9 @@ const Cart = (props:{addToCart:ServicePricingData[]}) => {
     },[modifyQuantity]);
 
     //handle increasing of quantity
-    const handleIncreaseQuantity = useCallback((item:{name:string,price:number,quantity:number,image:string})=>{
+    const handleIncreaseQuantity = useCallback((item:{name:string,price:number,quantity:number,image:string,serviceType:string})=>{
         let curState = modifyQuantity;
-        const itemArr = curState.find((i:[ServicePricingData,number])=> (item.name === i[0].name && item.price === i[0].price && item.image === i[0].image));
+        const itemArr = curState.find((i:[ServicePricingData,number])=> ((item.name === i[0].name||item.serviceType === i[0].serviceType) && item.price === i[0].price && item.image === i[0].image));
 
         const index = itemArr?curState.indexOf(itemArr):-1;
         if (index != -1) curState[index][1]++;
@@ -31,9 +31,9 @@ const Cart = (props:{addToCart:ServicePricingData[]}) => {
     },[modifyQuantity]);
     
     //handle decrease of quantity
-    const handleDecreaseQuantity = useCallback((item:{name:string,price:number,quantity:number,image:string})=>{
+    const handleDecreaseQuantity = useCallback((item:{name:string,price:number,quantity:number,image:string,serviceType:string})=>{
         let curState = modifyQuantity;
-        const itemArr = curState.find((i:[ServicePricingData,number])=> (item.name === i[0].name && item.price === i[0].price && item.image === i[0].image));
+        const itemArr = curState.find((i:[ServicePricingData,number])=> ((item.name === i[0].name||item.serviceType === i[0].serviceType) && item.price === i[0].price && item.image === i[0].image));
 
         const index = itemArr?curState.indexOf(itemArr):-1;
         if (index != -1) curState[index][1]--;
@@ -66,7 +66,7 @@ const Cart = (props:{addToCart:ServicePricingData[]}) => {
                     <div className="body-cart grid ">
                         
                         {
-                            props.addToCart.length>0 && props.addToCart.map((item:ServicePricingData,k:number)=><CartCard key={k} price={item.price} name={item.name?item.name!:item.serviceType!} image={item.image} quantity={modifyQuantity[k][1]} inview={inview} setInView={setInView} handleTotal={handleTotal} handleIncreaseQuantity={handleIncreaseQuantity} handleDecreaseQuantity={handleDecreaseQuantity}/>)
+                            props.addToCart.length>0 && props.addToCart.map((item:ServicePricingData,k:number)=><CartCard key={k} price={item.price} name={item.name?item.name!:item.serviceType!} image={item.image} quantity={modifyQuantity[k][1]} inview={inview} setInView={setInView} handleTotal={handleTotal} handleIncreaseQuantity={handleIncreaseQuantity} handleDecreaseQuantity={handleDecreaseQuantity} serviceType={item.serviceType}/>)
                         }
                         {
                             props.addToCart.length>0 && <>
