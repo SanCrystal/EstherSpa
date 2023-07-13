@@ -46,22 +46,22 @@ const Cart = (props:{addToCart:ServicePricingData[]}) => {
 
     return (
     <>
-    {inview[0] && <div className="fixed z-20 mx-[15%] mt-[4%] p-10 bg-primary/40 w-[70vw] h-[60vh] ">
+    {inview[0] && <div className="fixed z-20 mx-[15%] mt-[4%] p-10 bg-primary/40 w-[70vw] h-[60vh]  ">
         
         <div className=" w-full bg-cover relative h-full">
         <button onClick={()=>setInView([false,""])} className="absolute right-4 -top-2"><AiOutlineClose className="font-semibold md:text-5xl text-3xl text-red-500"/></button>
             <img src={inview[1]} alt="inview image"  className="object-cover w-full h-full"/>
         </div>
         </div>}
-    <div className="relative min-h-[70%] mt-10 ">
-        <div className="w-[85%] m-auto  grid p ">
+    <div className="relative min-h-[70%] mt-10 overflow-x-scroll ">
+        <div className="min-w-[80%] w-[60rem] m-auto  grid p ">
             <div className="header text-4xl font-bold text-primary/80  font-pacifico mb-6 m-auto px">Checkout</div>
                 <div className="p-10 shadow-lg">
-                    <div className="header flex font-medium text-xl text-primary border border-primary/20">
-                        <h4 className="border-r border-primary/20 py-4 px-4  text-center w-full" >Item(s)</h4>
-                        <h4 className="border-r border-primary/20 py-4 px-4 text-center w-[40%]">Price ($)</h4>
-                        <h4 className="border-r border-primary/20 py-4 px-4 text-center w-[60%]">Quantity</h4>
-                        <h4 className=" py-4 px-4 text-center w-[60%]">Total ($)</h4>
+                    <div className="header grid grid-cols-6 font-medium text-xl text-primary border border-primary/20">
+                        <h4 className="border-r border-primary/20 py-4 px-4  text-center col-span-3 " >Item(s)</h4>
+                        <h4 className="border-r border-primary/20 py-4 px-4 text-center col-span-1">Price ($)</h4>
+                        <h4 className="border-r border-primary/20 py-4 px-4 text-center grid-cols-1">Quantity</h4>
+                        <h4 className=" py-4 px-4 text-center col-span-1">Total ($)</h4>
                     </div>
                     <div className="body-cart grid ">
                         

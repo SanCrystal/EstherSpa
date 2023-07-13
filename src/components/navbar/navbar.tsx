@@ -14,7 +14,7 @@ const Navbar = (props:{addToCart:ServicePricingData[],setAddToCart:React.Dispatc
     console.log(props)
 
     return ( <>
-<div className="hidden md:flex contact-header w-full flex-wrap items-center justify-end  pr-20 bg-secondaryLight gap-10 ">
+<div className="hidden md:flex contact-header w-full flex-wrap items-center justify-end  pr-20 bg-secondaryLight gap-10">
         <span className="flex place-items-center gap-2 p-1">
             <FiMail/>
             <span>esb@gmail.com</span> 
@@ -23,7 +23,7 @@ const Navbar = (props:{addToCart:ServicePricingData[],setAddToCart:React.Dispatc
             <BsFillTelephoneOutboundFill className=""/>
            <span> +23409000000000</span></span>
 </div>
-<nav className=" border border-primary bg-primary dark:border-primary  ">
+<nav className=" border border-primary bg-primary dark:border-primary ">
   <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 relative">
     <a href="/" className="flex items-center">
         <img src={assets.Logo} className="h-8 mr-3" alt="esb Logo" />
@@ -51,8 +51,8 @@ const Navbar = (props:{addToCart:ServicePricingData[],setAddToCart:React.Dispatc
 
     {/* mobile nav */}
     
-    <div className={`md:hidden w-full  md:w-auto" id="navbar-multi-level absolute transition-all duration-500 ${isOpen?"translate-x-[40%] right-0 z-20":"translate-x-full"} `}>
-    <ul className="flex flex-col font-medium p-4 pl-0 md:p-0 mt-4 border  md:flex-row md:space-x-8 md:mt-0 md:border-0 bg-primary md:dark:bg-primary border-primary absolute  w-[60%]">
+    <div className={`md:hidden w-full  md:w-auto absolute duration-500 `}>
+    <ul className={`flex flex-col font-medium p-4 pl-0 md:p-0 mt-4 border  md:flex-row md:space-x-8 md:mt-0 md:border-0 bg-primary md:dark:bg-primary border-primary absolute transition-all  ${isOpen?"translate-x-[30%] right-0 z-40 w-full  ":"-translate-x-0 right-10 opacity-0 z-0 w-[20%]"} `}>
 
     {
         navDataMain.map((item:navitem,k:number)=> <NavItem title={item.title} link={item.link} key={`${k}`} subLink={item.subLink}/>)
