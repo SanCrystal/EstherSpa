@@ -41,7 +41,7 @@ function App() {
               <Route path='blog' element={<Blog />}/>
               <Route path='bookings' element={<Bookings />}/>
               <Route path='gallery' element={<Gallery />}/>
-              <Route path='checkout' element={<Cart addToCart={addToCart}  />}/>
+              <Route path='checkout' element={<Cart addToCart={addToCart} setAddToCart={setAddToCart} />}/>
             </Routes>
         <Footer/>
       </main>

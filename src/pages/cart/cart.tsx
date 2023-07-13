@@ -4,52 +4,52 @@ import CartCard from "../../components/cartCard";
 import { ServicePricingData } from "../../interfaces/ui_interface";
 
 
-const Cart = (props:{addToCart:ServicePricingData[]}) => {
+const Cart = (props:{addToCart:ServicePricingData[],setAddToCart:React.Dispatch<React.SetStateAction<ServicePricingData[]>>}) => {
     const [modifyQuantity,setModifyQuantity] = useState<[ServicePricingData,number][]>(props.addToCart.map(item=>[item,1])); //populate initial state values in carts
     const [inview,setInView] = useState<[boolean,string]>([false,""]);
     const [total,setTotal] = useState<number>(modifyQuantity.map(item=> item[0].price * item[1] ).reduce((a,b)=>a + b, 0));
 
     //handle total price
-    const handleTotal = useCallback(()=>{
-        const newTotal = modifyQuantity.map(item=> item[0].price * item[1] ).reduce((a,b)=>a + b, 0);
+    const handleTotal = useCallback((item:[ServicePricingData,number][])=>{
+        const newTotal = item.map(item=> item[0].price * item[1] ).reduce((a,b)=>a + b, 0);
         //set total
         setTotal(newTotal);
     },[modifyQuantity]);
 
-    //handle increasing of quantity
-    const handleIncreaseQuantity = useCallback((item:{name:string,price:number,quantity:number,image:string,serviceType:string})=>{
+    //handle increasing|decreasing of quantity
+    const handleIncreaseOrDecreaseQuantity = useCallback((item:{name:string,price:number,quantity:number,image:string,serviceType:string},type:string)=>{
         let curState = modifyQuantity;
         const itemArr = curState.find((i:[ServicePricingData,number])=> ((item.name === i[0].name||item.serviceType === i[0].serviceType) && item.price === i[0].price && item.image === i[0].image));
 
-        const index = itemArr?curState.indexOf(itemArr):-1;
-        if (index != -1) curState[index][1]++;
+        const index = itemArr?curState.indexOf(itemArr):-1; //Ensure index is not negative| exist
+        if (index != -1 && type=="inc") curState[index][1]++;
+        if (index != -1 && type=="dec") curState[index][1] <= 0?0:curState[index][1]--;
     
         //update state
         setModifyQuantity(curState);
         //handle total
-        handleTotal();
-    },[modifyQuantity]);
-    
-    //handle decrease of quantity
-    const handleDecreaseQuantity = useCallback((item:{name:string,price:number,quantity:number,image:string,serviceType:string})=>{
-        let curState = modifyQuantity;
-        const itemArr = curState.find((i:[ServicePricingData,number])=> ((item.name === i[0].name||item.serviceType === i[0].serviceType) && item.price === i[0].price && item.image === i[0].image));
+        handleTotal(curState);
+    },[modifyQuantity,total]);
 
-        const index = itemArr?curState.indexOf(itemArr):-1;
-        if (index != -1) curState[index][1] <= 0?0:curState[index][1]--;
-    
-        //update state
-        setModifyQuantity(curState);
+    //handle remove item from cart
+    const handleRemoveItemFromCart = useCallback((item:{name:string,price:number,quantity:number,image:string,serviceType:string}) =>{
+        const curState = props.addToCart.filter(i=>!((item.name === i.name||item.serviceType === i.serviceType) && item.price === i.price && item.image === i.image))
+
+        const curQuantityState = modifyQuantity.filter(i=>!((item.name === i[0].name||item.serviceType === i[0].serviceType) && item.price === i[0].price && item.image === i[0].image))
+        //update cart state
+        props.setAddToCart(curState);
+        //update quantity state
+        setModifyQuantity(curQuantityState);
         //handle total
-        handleTotal();
-    },[modifyQuantity]);
+        handleTotal(curQuantityState);
+    },[modifyQuantity,props.addToCart,handleTotal]);
 
     return (
     <>
     {inview[0] && <div className="fixed z-20 mx-[15%] mt-[4%] p-10 bg-primary/40 w-[70vw] h-[60vh]  ">
         
         <div className=" w-full bg-cover relative h-full">
-        <button onClick={()=>setInView([false,""])} className="absolute right-4 -top-2"><AiOutlineClose className="font-semibold md:text-5xl text-3xl text-red-500"/></button>
+        <button onClick={()=>setInView([false,""])} className="absolute right-4 -top-2 ring-4 rounded-md ring-red-500 "><AiOutlineClose className="font-semibold md:text-5xl text-3xl text-red-500"/></button>
             <img src={inview[1]} alt="inview image"  className="object-cover w-full h-full"/>
         </div>
         </div>}
@@ -66,7 +66,7 @@ const Cart = (props:{addToCart:ServicePricingData[]}) => {
                     <div className="body-cart grid ">
                         
                         {
-                            props.addToCart.length>0 && props.addToCart.map((item:ServicePricingData,k:number)=><CartCard key={k} price={item.price} name={item.name?item.name!:item.serviceType!} image={item.image} quantity={modifyQuantity[k][1]} inview={inview} setInView={setInView} handleTotal={handleTotal} handleIncreaseQuantity={handleIncreaseQuantity} handleDecreaseQuantity={handleDecreaseQuantity} serviceType={item.serviceType}/>)
+                            props.addToCart.length>0 && props.addToCart.map((item:ServicePricingData,k:number)=><CartCard key={k} price={item.price} name={item.name?item.name!:item.serviceType!} image={item.image} quantity={modifyQuantity[k][1]} inview={inview} setInView={setInView} handleIncreaseOrDecreaseQuantity={handleIncreaseOrDecreaseQuantity}  serviceType={item.serviceType} handleRemoveItemFromCart={handleRemoveItemFromCart}/>)
                         }
                         {
                             props.addToCart.length>0 && <>
@@ -74,9 +74,11 @@ const Cart = (props:{addToCart:ServicePricingData[]}) => {
                             <span className="mx-14">Grand Total</span>
                             <span>${total}</span>
                         </div>
-                        <div className="checkout w-20 mx-auto">
-                            <button className="px-4 py-2 rounded-md bg-primary/40 text-secondaryLight animate-pulse">Checkout</button>
+                        <div className="checkout w-72 flex mx-auto justify-between">
+                            <button className="px-4 py-2 rounded-md bg-green-600/70 text-secondaryLight animate-pulse">Checkout</button>
+                            <button onClick={()=>{props.setAddToCart([])}} className="px-4 py-2 rounded-md bg-red-600/70 text-secondaryLight animate-pulse">Empty Cart</button>
                         </div>
+         
                             </>
                         }
                         
