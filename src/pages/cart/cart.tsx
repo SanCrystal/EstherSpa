@@ -36,7 +36,7 @@ const Cart = (props:{addToCart:ServicePricingData[]}) => {
         const itemArr = curState.find((i:[ServicePricingData,number])=> ((item.name === i[0].name||item.serviceType === i[0].serviceType) && item.price === i[0].price && item.image === i[0].image));
 
         const index = itemArr?curState.indexOf(itemArr):-1;
-        if (index != -1) curState[index][1]--;
+        if (index != -1) curState[index][1] <= 0?0:curState[index][1]--;
     
         //update state
         setModifyQuantity(curState);
