@@ -48,11 +48,13 @@ const Navbar = (props:{addToCart:ServicePricingData[],setAddToCart:React.Dispatc
        </li>
       </ul>
     </div>
+  </div>
 
-    {/* mobile nav */}
+
+  {/* mobile nav */}
     
-    <div className={`md:hidden w-full  md:w-auto absolute duration-500 `}>
-    <ul className={`flex flex-col font-medium p-4 pl-0 md:p-0 mt-4 border  md:flex-row md:space-x-8 md:mt-0 md:border-0 bg-primary md:dark:bg-primary border-primary absolute transition-all  ${isOpen?"translate-x-[30%] right-0 z-40 w-full  ":"-translate-x-0 right-10 opacity-0 z-0 w-[20%]"} `}>
+  <div className={`md:hidden w-[60%] relative -right-3   flex place-items-start  `}>
+    <ul className={`flex flex-col font-medium p-4 pl-0  border   bg-primary border-primary absolute  ease-out transition-all duration-500 origin-right   ${isOpen?"translate-x-[60%] z-40 w-full opacity-100  ":"opacity-0 z-0 w-full translate-x-full"} `}>
 
     {
         navDataMain.map((item:navitem,k:number)=> <NavItem title={item.title} link={item.link} key={`${k}`} subLink={item.subLink}/>)
@@ -63,8 +65,6 @@ const Navbar = (props:{addToCart:ServicePricingData[],setAddToCart:React.Dispatc
     </li>
     </ul>
     </div>
-    
-  </div>
 </nav>
 
     </> );
