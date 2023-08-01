@@ -20,7 +20,7 @@ const Footer = () => {
                 <div className="holder-brief p-3">
                     <div className="mx-auto flex place-content-center md:place-content-start mb-4">
                         <a href="/" className="flex items-center bg-primaryLight  p-5">
-                            <img src={assets.Logo} className="h-8 mr-3 " alt="esb Logo" />
+                            <img src={assets.Logo} className="h-8 mr-3 " alt="efb Logo" />
                             <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-secondaryLight text-secondaryLight">EFB BEAUTY SPA</span>
                         </a>
                     </div>
@@ -42,7 +42,7 @@ const Footer = () => {
                 <p className="pb-2 md:pb-5 text-primary/80">Subscribe to stay up to date with recent trends and occurences about how to best care for your body and look the part.</p>
                 <div className="inputmail mb-4">
                     <form className="flex">
-                        <input type="email" name="email" id="email"  placeholder="esb@gmail.com" className="ring-2 ring-primary rounded-sm h-10 w-full px-3 py-2 dark:bg-primary/30 dark:text-gray-100"/>
+                        <input type="email" name="email" id="email"  placeholder="efb@gmail.com" className="ring-2 ring-primary rounded-sm h-10 w-full px-3 py-2 dark:bg-primary/30 dark:text-gray-100"/>
                         <button type="submit" value={"Subscribe"} className="p-2 bg-primary text-secondaryLight relative ring-2 ring-primary">Subscribe</button>
                     </form>
                 </div>
@@ -56,7 +56,7 @@ const Footer = () => {
                     <a href="#"><BsTiktok className="text-2xl mr-2 text-primary"/></a>
                     <a href="#"><BsYoutube className="text-2xl mr-2 text-primary"/></a>
                 </div>
-                <div className="copyright">&copy;2023 Copyright ESB Spa All rights reserved</div>
+                <div className="copyright">&copy;2023 Copyright EFB Spa All rights reserved</div>
             </div>
         </section>
      

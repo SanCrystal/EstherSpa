@@ -6,7 +6,7 @@ export const servicePricingData:ServicePricingData[] =[
     {
     id:1,
     image:assets.Facial,
-    serviceType:"ESB Light",
+    serviceType:"EFB Light",
     price:60,
     servicesRendered:[
         "Body Hand and Foot Massage",
@@ -17,7 +17,7 @@ export const servicePricingData:ServicePricingData[] =[
     {
         id:2,
     image:assets.Facial3,
-    serviceType:"ESB Silver",
+    serviceType:"EFB Silver",
     price:80,
     servicesRendered:[
         "Body Hand and Foot Massage",
@@ -28,7 +28,7 @@ export const servicePricingData:ServicePricingData[] =[
     {
     id:3,
     image:assets.Massage1,
-    serviceType:"ESB Gold",
+    serviceType:"EFB Gold",
     price:100,
     servicesRendered:[
         "Body Hand and Foot Massage",
@@ -39,7 +39,7 @@ export const servicePricingData:ServicePricingData[] =[
     {
     id:4,
     image:assets.Massage2,
-    serviceType:"ESB Plantinum",
+    serviceType:"EFB Plantinum",
     price:199,
     servicesRendered:[
         "Body Hand and Foot Massage",

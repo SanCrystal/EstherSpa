@@ -17,7 +17,7 @@ const Navbar = (props:{addToCart:ServicePricingData[],setAddToCart:React.Dispatc
 <div className="hidden md:flex contact-header w-full flex-wrap items-center justify-end  pr-20 bg-secondaryLight gap-10">
         <span className="flex place-items-center gap-2 p-1">
             <FiMail/>
-            <span>esb@gmail.com</span> 
+            <span>efb@gmail.com</span> 
         </span>
         <span className="flex place-items-center gap-2 p-1">
             <BsFillTelephoneOutboundFill className=""/>
@@ -26,7 +26,7 @@ const Navbar = (props:{addToCart:ServicePricingData[],setAddToCart:React.Dispatc
 <nav className=" border border-primary bg-primary dark:border-primary ">
   <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 relative">
     <a href="/" className="flex items-center">
-        <img src={assets.Logo} className="h-8 mr-3" alt="esb Logo" />
+        <img src={assets.Logo} className="h-8 mr-3" alt="efb Logo" />
         <span className="self-center text-2xl text-gray-100 font-semibold whitespace-nowrap dark:text-yellow-600/80">EFB BEAUTY SPA</span>
     </a>
     {

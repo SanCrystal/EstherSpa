@@ -27,7 +27,7 @@ const ContactUs = () => {
         e.preventDefault();
         if(subject && email && message && name){
             const body = `Name: ${name.current?.value}\nEmail: ${email.current?.value}\nMessage: ${message.current?.value}`;
-            const mailtoLink = `mailto:esb@gmail.com?subject=${encodeURIComponent(subject.current!.value)}&body=${encodeURIComponent(body)}`;
+            const mailtoLink = `mailto:efb@gmail.com?subject=${encodeURIComponent(subject.current!.value)}&body=${encodeURIComponent(body)}`;
             resetInput();
             // navigate(mailtoLink);
             // Open the default email client with the populated email fields
@@ -56,11 +56,11 @@ const ContactUs = () => {
                 </div>
                 <div className="store bg-primaryLight/80  md:col-span-2   grid place-content-center gap-10 px-10 mx-10 md:mx-0 py-10 text-secondaryLight w-fit">
                     <h2 className="text-2xl font-bold">Contact</h2>
-                    <p>Welcome to ESB luxury spa, where tranquility and rejuvenation await you. Immerse yourself in a world of relaxation and pampering, designed to nurture your body and uplift your spirit. Allow us to take you on a journey of ultimate bliss and enhance your body's feel-good factor while helping you look your best. Reach out on the following means below or shoot us a mail</p>
+                    <p>Welcome to EFB luxury spa, where tranquility and rejuvenation await you. Immerse yourself in a world of relaxation and pampering, designed to nurture your body and uplift your spirit. Allow us to take you on a journey of ultimate bliss and enhance your body's feel-good factor while helping you look your best. Reach out on the following means below or shoot us a mail</p>
                     <div className="grid gap-10">
-                        <Card icon={ImLocation2} text={["ESB Beauty Spa, Four Points by Sheraton, Ikot Ekpene."]}/>
+                        <Card icon={ImLocation2} text={["EFB Beauty Spa, Four Points by Sheraton, Ikot Ekpene."]}/>
                         <Card icon={BsFillTelephoneOutboundFill} text={["+23490000000000","+23480000000000"]}/>
-                        <Card icon={FiMail} text={["esb@gmail.com","esb@protonmail.com"]}/>
+                        <Card icon={FiMail} text={["efb@gmail.com","efb@protonmail.com"]}/>
                     </div>
                 </div>
             </div>
